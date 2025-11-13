@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char names[5][20] = {"Amit","Bhavesh","Chetan","Deepak","Esha"};
+    char key[20];
+    int low=0,high=4,mid,found=0;
+    printf("Enter name to search: ");
+    scanf("%s",key);
+    while(low<=high){
+        mid=(low+high)/2;
+        int cmp=strcmp(names[mid],key);
+        if(cmp==0){found=1;break;}
+        else if(cmp<0) low=mid+1;
+        else high=mid-1;
+    }
+    if(found) printf("Name found!\n");
+    else printf("Name not found.\n");
+    return 0;
+}
